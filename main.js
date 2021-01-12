@@ -108,7 +108,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, "Auth0 - Angular Sample App");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "button", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function AppComponent_Template_button_click_2_listener() { return ctx.authService.loginWithRedirect(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function AppComponent_Template_button_click_2_listener() { return ctx.authService.loginWithRedirect({ redirect_uri: "/asdf/ddffdf" }); });
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3, "Login");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "button", 0);
@@ -181,8 +181,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"].forRoot({
                 domain: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_domain,
                 clientId: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_client_id,
-                audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience,
-                redirectUri: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_redirect_uri
+                audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience
             })
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"]] }); })();
@@ -197,8 +196,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"].forRoot({
                         domain: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_domain,
                         clientId: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_client_id,
-                        audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience,
-                        redirectUri: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_redirect_uri
+                        audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience
                     })
                 ],
                 providers: [],
