@@ -179,11 +179,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const urlSearchParams = new URLSearchParams(window.location.search);
-const appName = urlSearchParams.get('appName');
+let appName = urlSearchParams.get('appName');
 if (!appName) {
     urlSearchParams.set('appName', 'hamidev-nodejs-8324-src');
-    window.location.search = urlSearchParams.toString();
+    const newRelativePathQuery = window.location.pathname + '?' + urlSearchParams.toString();
+    history.pushState(null, '', newRelativePathQuery);
 }
+appName = urlSearchParams.get('appName');
 console.log('the appName is: ', appName);
 class AppModule {
 }
