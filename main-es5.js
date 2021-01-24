@@ -1417,7 +1417,9 @@
         }, {
           key: "loginWithRedirect",
           value: function loginWithRedirect() {
-            this.auth.loginWithRedirect();
+            this.auth.loginWithRedirect({
+              redirect_uri: window.location.origin + window.location.pathname
+            });
           }
         }, {
           key: "logout",
