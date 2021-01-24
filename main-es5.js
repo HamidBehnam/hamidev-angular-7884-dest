@@ -1418,14 +1418,14 @@
           key: "loginWithRedirect",
           value: function loginWithRedirect() {
             this.auth.loginWithRedirect({
-              redirect_uri: window.location.origin + window.location.pathname
+              redirect_uri: this.doc.location.origin + this.doc.location.pathname
             });
           }
         }, {
           key: "logout",
           value: function logout() {
             this.auth.logout({
-              returnTo: this.doc.location.origin
+              returnTo: this.doc.location.origin + this.doc.location.pathname
             });
           }
         }]);

@@ -708,11 +708,11 @@ class NavBarComponent {
     ngOnInit() { }
     loginWithRedirect() {
         this.auth.loginWithRedirect({
-            redirect_uri: window.location.origin + window.location.pathname
+            redirect_uri: this.doc.location.origin + this.doc.location.pathname
         });
     }
     logout() {
-        this.auth.logout({ returnTo: this.doc.location.origin });
+        this.auth.logout({ returnTo: this.doc.location.origin + this.doc.location.pathname });
     }
 }
 NavBarComponent.ɵfac = function NavBarComponent_Factory(t) { return new (t || NavBarComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])); };
