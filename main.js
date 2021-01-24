@@ -92,7 +92,7 @@ class AppComponent {
     }
     loginWithRedirect() {
         console.log(window.location.origin + window.location.pathname);
-        const thePath = window.location.pathname + '?' + window.location.search;
+        const thePath = window.location.pathname + window.location.search;
         console.log('the path is: ', thePath);
         this.authService.loginWithRedirect({
             redirect_uri: window.location.origin + window.location.pathname,
