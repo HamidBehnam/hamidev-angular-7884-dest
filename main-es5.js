@@ -1813,7 +1813,7 @@
         selectors: [["app-loading"]],
         decls: 2,
         vars: 0,
-        consts: [[1, "loading"], ["src", "../../../assets/loading.svg", "alt", "Loading..."]],
+        consts: [[1, "loading"], ["src", "assets/loading.svg", "alt", "Loading..."]],
         template: function LoadingComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
