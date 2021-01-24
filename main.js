@@ -27,10 +27,11 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    auth0_domain: "dev-2nbjdzvu.us.auth0.com",
-    auth0_client_id: "79qkAdchT3jEEXtwnw1Ot5D0zD3TYYV6",
-    auth0_audience: "https://dev.hamidbehnam.com/nodejs/8324/",
-    auth0_redirect_uri: "https://dev.hamidbehnam.com/angular/7884"
+    "hamidev-nodejs-8324-src": {
+        auth0_domain: "dev-2nbjdzvu.us.auth0.com",
+        auth0_client_id: "79qkAdchT3jEEXtwnw1Ot5D0zD3TYYV6",
+        auth0_audience: "https://dev.hamidbehnam.com/nodejs/8324/"
+    }
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -88,14 +89,16 @@ class AppComponent {
         this.authService.user$.subscribe(user => {
             console.log(user);
         });
+    }
+    loginWithRedirect() {
         console.log(window.location.origin + window.location.pathname);
-        this.redirectLoginOptions = {
-            redirect_uri: window.location.origin + window.location.pathname,
+        const thePath = window.location.pathname + '?' + window.location.search;
+        console.log('the path is: ', thePath);
+        this.authService.loginWithRedirect({
             appState: {
-                theName: "Hamid",
-                theCode: 234
+                target: thePath
             }
-        };
+        });
     }
     getAccessToken() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -114,7 +117,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, "Auth0 - Angular Sample App");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "button", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function AppComponent_Template_button_click_2_listener() { return ctx.authService.loginWithRedirect(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function AppComponent_Template_button_click_2_listener() { return ctx.loginWithRedirect(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3, "Login");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "button", 0);
@@ -176,28 +179,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// const urlSearchParams = new URLSearchParams(window.location.search);
-// let appName = urlSearchParams.get('appName');
-//
-// if (!appName) {
-//   urlSearchParams.set('appName', 'hamidev-nodejs-8324-src');
-//   const newRelativePathQuery = window.location.pathname + '?' + urlSearchParams.toString();
-//   history.pushState(null, '', newRelativePathQuery);
-// }
-//
-// appName = urlSearchParams.get('appName');
-//
-// console.log('the appName is: ', appName);
+const urlSearchParams = new URLSearchParams(window.location.search);
+let appName = urlSearchParams.get('appName');
+if (!appName) {
+    urlSearchParams.set('appName', 'hamidev-nodejs-8324-src');
+    const newRelativePathQuery = window.location.pathname + '?' + urlSearchParams.toString();
+    history.pushState(null, '', newRelativePathQuery);
+}
+appName = urlSearchParams.get('appName');
+console.log('the appName is: ', appName);
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]] });
 AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"].forRoot({
-                domain: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].auth0_domain,
-                clientId: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].auth0_client_id,
-                audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].auth0_audience,
-                redirectUri: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].auth0_redirect_uri
+                domain: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_domain,
+                clientId: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_client_id,
+                audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience
             })
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"]] }); })();
@@ -210,10 +209,9 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                     _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"].forRoot({
-                        domain: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].auth0_domain,
-                        clientId: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].auth0_client_id,
-                        audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].auth0_audience,
-                        redirectUri: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].auth0_redirect_uri
+                        domain: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_domain,
+                        clientId: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_client_id,
+                        audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience
                     })
                 ],
                 providers: [],
