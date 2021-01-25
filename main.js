@@ -94,12 +94,7 @@ class AppComponent {
         console.log(window.location.origin + window.location.pathname);
         const thePath = window.location.pathname + window.location.search;
         console.log('the path is: ', thePath);
-        this.authService.loginWithRedirect({
-            redirect_uri: window.location.origin + window.location.pathname,
-            appState: {
-                target: thePath
-            }
-        });
+        this.authService.loginWithRedirect();
     }
     getAccessToken() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -197,7 +192,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"].forRoot({
                 domain: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_domain,
                 clientId: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_client_id,
-                audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience
+                audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience,
+                redirectUri: window.location.origin + window.location.pathname
             })
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"]] }); })();
@@ -212,7 +208,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _auth0_auth0_angular__WEBPACK_IMPORTED_MODULE_3__["AuthModule"].forRoot({
                         domain: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_domain,
                         clientId: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_client_id,
-                        audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience
+                        audience: _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"][appName].auth0_audience,
+                        redirectUri: window.location.origin + window.location.pathname
                     })
                 ],
                 providers: [],
