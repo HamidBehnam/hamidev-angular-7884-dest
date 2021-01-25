@@ -190,7 +190,7 @@
           domain: _auth_config_json__WEBPACK_IMPORTED_MODULE_0__["domain"],
           clientId: _auth_config_json__WEBPACK_IMPORTED_MODULE_0__["clientId"],
           audience: _auth_config_json__WEBPACK_IMPORTED_MODULE_0__["audience"],
-          redirectUri: window.location.origin
+          redirectUri: window.location.origin + window.location.pathname
         },
         httpInterceptor: {
           allowedList: ["".concat(_auth_config_json__WEBPACK_IMPORTED_MODULE_0__["apiUri"], "/*")]
@@ -346,7 +346,7 @@
         selectors: [["app-hero"]],
         decls: 8,
         vars: 0,
-        consts: [[1, "text-center", "hero", "my-5"], ["src", "../../assets/logo.png", "alt", "Angular logo", 1, "mb-3", "app-logo"], [1, "mb-4"], [1, "lead"], ["href", "https://angular.io"]],
+        consts: [[1, "text-center", "hero", "my-5"], ["src", "assets/logo.png", "alt", "Angular logo", 1, "mb-3", "app-logo"], [1, "mb-4"], [1, "lead"], ["href", "https://angular.io"]],
         template: function HeroComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
