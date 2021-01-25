@@ -707,9 +707,7 @@ class NavBarComponent {
     }
     ngOnInit() { }
     loginWithRedirect() {
-        this.auth.loginWithRedirect({
-            redirect_uri: this.doc.location.origin + this.doc.location.pathname
-        });
+        this.auth.loginWithRedirect();
     }
     logout() {
         this.auth.logout({ returnTo: this.doc.location.origin + this.doc.location.pathname });
