@@ -28,9 +28,9 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     "hamidev-nodejs-8324-src": {
-        auth0_domain: "dev-2nbjdzvu.us.auth0.com",
-        auth0_client_id: "79qkAdchT3jEEXtwnw1Ot5D0zD3TYYV6",
-        auth0_audience: "https://dev.hamidbehnam.com/nodejs/8324/"
+        auth0_domain: "hamidbehnam-project-management-s1.us.auth0.com",
+        auth0_client_id: "F3d7VMiPXs2KCEOkvufmf6RX8xBeLTt9",
+        auth0_audience: "https://hamidbehnam.com/nodejs/8324/"
     },
     "hamidev-nodejs-test-src": {
         auth0_domain: "dev-2nbjdzvu.us.auth0.com",
@@ -196,8 +196,12 @@ __webpack_require__.r(__webpack_exports__);
 
 const urlSearchParams = new URLSearchParams(window.location.search);
 let appName = urlSearchParams.get('appName');
+if (appName) {
+    window.localStorage.setItem('appName', appName);
+}
 if (!appName) {
-    urlSearchParams.set('appName', 'hamidev-nodejs-8324-src');
+    const restoredAppName = window.localStorage.getItem('appName');
+    urlSearchParams.set('appName', restoredAppName || 'hamidev-nodejs-8324-src');
     const newRelativePathQuery = window.location.pathname + '?' + urlSearchParams.toString();
     history.pushState(null, '', newRelativePathQuery);
 }
